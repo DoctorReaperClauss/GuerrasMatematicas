@@ -11,7 +11,7 @@ $error = '';
 function create_user_data(string $user_name, $conexion){
     $_SESSION['user'] == $user_name;
     $conexion->insert_data($user_name);
-    // header('location:./views/main.php');
+    header('location:./views/main.php');
 }
 
 if ($_POST) {
