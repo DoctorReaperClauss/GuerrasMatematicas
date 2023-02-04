@@ -9,7 +9,7 @@ $conexion = new DBOPERATION('database/math.db');
 $error = '';
 
 //funciones del usuario
-function create_user_data(string $user_name, $conexion)
+function crear_data_del_usuario(string $user_name, $conexion)
 {
     $_SESSION['user'] = $user_name;
     $conexion->insert_data($user_name);
@@ -18,26 +18,26 @@ function create_user_data(string $user_name, $conexion)
 
 function logear_al_usuario(string $user_name, $conexion)
 {
-    $estado_login = login('database/math.db', $_POST['user_name'], $_POST['user_pass']);
+    $estado_login = loggear_usuario('database/math.db', $_POST['user_name'], $_POST['user_pass']);
 
     if ($estado_login != "loggin con exito") {
         global $error;
         $error = $estado_login;
         return false;
     }
-    create_user_data($user_name, $conexion);
+    crear_data_del_usuario($user_name, $conexion);
 }
 
 function registrar_al_usuario(string $user_name, $conexion)
 {
-    $estado_registro = registrarUsuario('database/math.db', $_POST['user_name'], $_POST['user_pass']);
+    $estado_registro = registrar_usuario('database/math.db', $_POST['user_name'], $_POST['user_pass']);
 
     if ($estado_registro == "el usuario existe") {
         global $error;
         $error = $estado_registro;
         return false;
     }
-    create_user_data($user_name, $conexion);
+    crear_data_del_usuario($user_name, $conexion);
 }
 
 //funciones de validacion

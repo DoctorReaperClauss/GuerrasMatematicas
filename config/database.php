@@ -8,12 +8,12 @@ class DBCONNECTION
     {
         try {
             $this->conexion = new PDO("sqlite:$db_path");
-            $this->create_tables();
+            $this->crear_tablas();
         } catch (PDOException $e) {
             echo $e;
         }
     }
-    public function create_tables()
+    public function crear_tablas()
     {
         $tables = array(
             "CREATE TABLE IF NOT EXISTS users (
@@ -47,7 +47,7 @@ class DBOPERATION extends DBCONNECTION
         $prepared_statement->execute($params);
     }
 
-    public function return_search_result(string $query, array $params)
+    public function retornar_resultado_de_busqueda(string $query, array $params)
     {
         $prepared_statement = $this->conexion->prepare($query);
         $prepared_statement->execute($params);
@@ -58,10 +58,10 @@ class DBOPERATION extends DBCONNECTION
     public function insert_data(string $user_name)
     {
         //obtener el id de ese usuario para llenarle sus respectivos datos de cada nivel
-        $user_id = $this->return_search_result("SELECT user_id FROM users WHERE user_name=:user_name", [$user_name])[0][0];
+        $user_id = $this->retornar_resultado_de_busqueda("SELECT user_id FROM users WHERE user_name=:user_name", [$user_name])[0][0];
 
         //llenar la tabla de niveles con los datos de los 20 niveles existentes
-        $data_already_in_table = $this->return_search_result("SELECT * FROM niveles WHERE user_id=:user_id", [$user_id]);
+        $data_already_in_table = $this->retornar_resultado_de_busqueda("SELECT * FROM niveles WHERE user_id=:user_id", [$user_id]);
 
         //si ya hay datos en al tabla, no hagas nada (significa que ese usuario ya tiene progreso)
         if ($data_already_in_table != []) {

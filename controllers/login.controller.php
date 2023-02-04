@@ -1,10 +1,10 @@
 <?php
 
-function login(string $db, string $user, string $password)
+function loggear_usuario(string $db, string $user, string $password)
 {
     $conexion = new DBOPERATION($db);
 
-    $userExists = $conexion->return_search_result("SELECT * FROM users WHERE user_name=:user", [$user]);
+    $userExists = $conexion->retornar_resultado_de_busqueda("SELECT * FROM users WHERE user_name=:user", [$user]);
 
     //si el usuario no existe, directamente salte de la funcion
     if (!$userExists) {

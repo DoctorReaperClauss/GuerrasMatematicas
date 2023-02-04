@@ -1,20 +1,20 @@
 <?php
 
-function infoValida(string $db, string $user, string $pass): bool
+function info_valida(string $db, string $user, string $pass): bool
 {
     $conexion = new DBOPERATION($db);
 
     //verificar que el usuario no exista ya
-    $userExists = $conexion->return_search_result("SELECT * FROM users WHERE user_name=:user", [$user]);
+    $userExists = $conexion->retornar_resultado_de_busqueda("SELECT * FROM users WHERE user_name=:user", [$user]);
     if ($userExists) {
         return False;
     }
     return true;
 }
 
-function registrarUsuario(string $db, string $user, string $pass)
+function registrar_usuario(string $db, string $user, string $pass)
 {
-    if (!infoValida($db, $user, $pass)) {
+    if (!info_valida($db, $user, $pass)) {
         return 'el usuario existe';
     }
 
