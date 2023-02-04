@@ -8,30 +8,70 @@ session_start();
 $conexion = new DBOPERATION('database/math.db');
 $error = '';
 
-function create_user_data(string $user_name, $conexion){
-    $_SESSION['user'] == $user_name;
+//funciones del usuario
+function create_user_data(string $user_name, $conexion)
+{
+    $_SESSION['user'] = $user_name;
     $conexion->insert_data($user_name);
     header('location:./views/main.php');
 }
 
+function logear_al_usuario(string $user_name, $conexion)
+{
+    $estado_login = login('database/math.db', $_POST['user_name'], $_POST['user_pass']);
+
+    if ($estado_login != "loggin con exito") {
+        global $error;
+        $error = $estado_login;
+        return false;
+    }
+    create_user_data($user_name, $conexion);
+}
+
+function registrar_al_usuario(string $user_name, $conexion)
+{
+    $estado_registro = registrarUsuario('database/math.db', $_POST['user_name'], $_POST['user_pass']);
+
+    if ($estado_registro == "el usuario existe") {
+        global $error;
+        $error = $estado_registro;
+        return false;
+    }
+    create_user_data($user_name, $conexion);
+}
+
+//funciones de validacion
+function existen_datos_vacios(): bool
+{
+    if (empty(trim($_POST['user_name'])) or empty(trim($_POST['user_pass']))) {
+        return true;
+    }
+    return false;
+}
+function POST_valido()
+{
+    if (existen_datos_vacios()) {
+        global $error;
+        $error = 'Faltan datos, por favor introduzcalos todos';
+        return false;
+    }
+    return true;
+}
+
+function POST_control(string $user_name, $conexion)
+{
+    if ($_POST['action'] == 'Logearse') {
+        logear_al_usuario($user_name, $conexion);
+    } else {
+        registrar_al_usuario($user_name, $conexion);
+    }
+
+}
+
+//main
 if ($_POST) {
-    if ($_POST['action'] === 'Logearse') {
-        $login = login('database/math.db', $_POST['user_name'], $_POST['user_pass']);
-
-        if ($login != "loggin con exito") {
-            $error = $login;
-        } else {
-            create_user_data($_POST['user_name'], $conexion);
-        }
-
-    } elseif ($_POST['action'] === 'Registrarse') {
-        $registro = registrarUsuario('database/math.db', $_POST['user_name'], $_POST['user_pass']);
-
-        if ($registro == "el usuario existe") {
-            $error = "el usuario ya existe";
-        } else {
-            create_user_data($_POST['user_name'], $conexion);
-        }
+    if (POST_valido()) {
+        POST_control($_POST['user_name'], $conexion);
     }
 }
 ?>
