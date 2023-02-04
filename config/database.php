@@ -80,5 +80,8 @@ class DBOPERATION extends DBCONNECTION
             $this->conexion->exec("INSERT INTO niveles VALUES($user_id, $i, 0)");
         }
 
+        //insertar el porcentaje incial
+        $this->conexion->exec("INSERT INTO puntaje VALUES($user_id, 0)");
+
     }
 }
