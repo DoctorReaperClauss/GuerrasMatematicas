@@ -9,7 +9,6 @@ class DBCONNECTION
         try {
             $this->conexion = new PDO("sqlite:$db_path");
             $this->create_tables();
-            $this->insert_data();
         } catch (PDOException $e) {
             echo $e;
         }
@@ -37,34 +36,14 @@ class DBCONNECTION
         }
     }
 
-    public function insert_data()
-    {
-        //llenar la tabla de niveles con los datos de los 20 niveles existentes
-        $data_already_in_table = $this->conexion->exec("SELECT * FROM niveles");
-
-        //si ya hay datos en al tabla, no hagas nada
-        if ($data_already_in_table != []) {
-            return false;
-        }
-
-        //si no hay, llena esa vaina
-        for ($i = 0; $i <= 20; $i++) {
-            $this->conexion->exec("INSERT INTO niveles VALUES($i, 0)");
-        }
-
-    }
-
 }
 
 class DBOPERATION extends DBCONNECTION
 {
     public function exec_query(string $query, array $params)
     {
-        //?para evitar ataques de sql injection
-        //preparar la query
         $prepared_statement = $this->conexion->prepare($query);
 
-        //ejecutar la query
         $prepared_statement->execute($params);
     }
 
@@ -74,5 +53,32 @@ class DBOPERATION extends DBCONNECTION
         $prepared_statement->execute($params);
 
         return $prepared_statement->fetchAll();
+    }
+
+    public function insert_data(string $user_name)
+    {
+        //obtener el id de ese usuario para llenarle sus respectivos datos de cada nivel
+        $user_id = $this->return_search_result("SELECT user_id FROM users WHERE user_name=:user_name", [$user_name])[0][0];
+
+        //llenar la tabla de niveles con los datos de los 20 niveles existentes
+        $data_already_in_table = $this->return_search_result("SELECT * FROM niveles WHERE user_id=:user_id", [$user_id]);
+
+        //si ya hay datos en al tabla, no hagas nada (significa que ese usuario ya tiene progreso)
+        if ($data_already_in_table != []) {
+            return false;
+        }
+
+        //si no hay, llena esa vaina
+        for ($i = 0; $i <= 20; $i++) {
+            //activar el nivel 1
+            if ($i == 0) {
+                $this->conexion->exec("INSERT INTO niveles VALUES($user_id, $i, 1)");
+                continue;
+            }
+
+            //desactivar el resto
+            $this->conexion->exec("INSERT INTO niveles VALUES($user_id, $i, 0)");
+        }
+
     }
 }

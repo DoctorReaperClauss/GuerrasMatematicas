@@ -10,7 +10,6 @@ function login(string $db, string $user, string $password)
     if (!$userExists) {
         return 'El usuario no existe';
     }
-    print_r($userExists[0]);
     $password_comparation = password_verify($password, $userExists[0]['user_pass']);
 
     //si las contraseñas no coinciden, salte

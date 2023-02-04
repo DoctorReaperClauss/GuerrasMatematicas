@@ -5,8 +5,14 @@
 
 <?php
 session_start();
-$conexion = new DBCONNECTION('database/math.db');
+$conexion = new DBOPERATION('database/math.db');
 $error = '';
+
+function create_user_data(string $user_name, $conexion){
+    $_SESSION['user'] == $user_name;
+    $conexion->insert_data($user_name);
+    // header('location:./views/main.php');
+}
 
 if ($_POST) {
     if ($_POST['action'] === 'Logearse') {
@@ -15,8 +21,7 @@ if ($_POST) {
         if ($login != "loggin con exito") {
             $error = $login;
         } else {
-            $_SESSION['user'] = $_POST['user_name'];
-            header('location:./views/main.php');
+            create_user_data($_POST['user_name'], $conexion);
         }
 
     } elseif ($_POST['action'] === 'Registrarse') {
@@ -25,8 +30,7 @@ if ($_POST) {
         if ($registro == "el usuario existe") {
             $error = "el usuario ya existe";
         } else {
-            $_SESSION['user'] = $_POST['user_name'];
-            header('location:./views/main.php');
+            create_user_data($_POST['user_name'], $conexion);
         }
     }
 }
