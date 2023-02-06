@@ -32,7 +32,7 @@ function registrar_al_usuario(string $user_name, $conexion)
 {
     $estado_registro = registrar_usuario('database/math.db', $_POST['user_name'], $_POST['user_pass']);
 
-    if ($estado_registro == "el usuario existe") {
+    if ($estado_registro == "El usuario ya existe") {
         global $error;
         $error = $estado_registro;
         return false;
@@ -52,7 +52,7 @@ function POST_valido()
 {
     if (existen_datos_vacios()) {
         global $error;
-        $error = 'Faltan datos, por favor introduzcalos todos';
+        $error = 'Por favor introduzca todos los datos';
         return false;
     }
     return true;
@@ -60,7 +60,7 @@ function POST_valido()
 
 function POST_control(string $user_name, $conexion)
 {
-    if ($_POST['action'] == 'Logearse') {
+    if ($_POST['action'] == 'LOGEARSE') {
         logear_al_usuario($user_name, $conexion);
     } else {
         registrar_al_usuario($user_name, $conexion);
@@ -83,27 +83,42 @@ if ($_POST) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guerras Matematicas</title>
+    <link rel="stylesheet" href="./styles/index.css">
+    <title>Guerras Matemáticas</title>
 </head>
 
 <body>
-
     <div class="container">
-        <h1>Guerras Matematicas</h1>
-        <p>
-            <?php echo $error ?>
-        </p>
-        <form action="./index.php" method="post">
-            <input type="text" name="user_name" id="user_name" placeholder="Introduzca su usuario">
-            <input type="password" name="user_pass" id="user_pass" placeholder="Introduzca su contraseña">
-
-            <div class="buttons">
-                <input type="submit" value="Logearse" name="action">
-                <input type="submit" value="Registrarse" name="action">
-            </div>
-        </form>
+        <div class="form-container">
+            <h1>Guerras <br> Matemáticas</h1>
+            <p>
+                <?php echo $error ?>
+            </p>
+            <form action="./index.php" method="post">
+                <input class="no-btn-input" type="text" name="user_name" id="user_name" placeholder="Introduzca su usuario" value="<?php if ($_POST) {echo $_POST['user_name'];} ?>" required>
+                <div class="pass">
+                    <input class="no-btn-input" type="password" name="user_pass" id="user_pass" placeholder="Introduzca su contraseña" required>
+                    <button class="visible-btn"><img src="" alt="visible"></button>
+                </div>
+                <div class="buttons">
+                    <input class="btn-input" type="submit" value="LOGEARSE" name="action">
+                    <input class="btn-input" type="submit" value="REGISTRARSE" name="action">
+                </div>
+            </form>
+        </div>
     </div>
+    <script>
+        document.querySelector('.visible-btn').addEventListener('click', e => {
+            e.preventDefault();
+            const pass_input = document.getElementById('user_pass');
 
+            if(pass_input['type'] == 'password'){
+                pass_input['type'] = 'text';
+            }else{
+                pass_input['type'] = 'password';
+            }
+        })
+    </script>
 </body>
 
 </html>

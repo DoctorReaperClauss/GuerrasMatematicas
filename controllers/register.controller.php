@@ -15,7 +15,7 @@ function info_valida(string $db, string $user, string $pass): bool
 function registrar_usuario(string $db, string $user, string $pass)
 {
     if (!info_valida($db, $user, $pass)) {
-        return 'el usuario existe';
+        return 'El usuario ya existe';
     }
 
     $conexion = new DBOPERATION($db);

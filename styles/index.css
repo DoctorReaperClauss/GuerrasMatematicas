@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body{
+    background-image: url("../imgs/definitiva.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+button, .btn-input{
+    cursor: pointer;
+}
+
+h1, p{
+    text-align: center;
+}
+
+h1{
+    margin: 15px;
+    padding: 5px;
+
+    color: rgba(238, 16, 16, 0.938);
+    font-size: 50px;
+    font-weight: bold;
+}
+
+p{
+    margin: 5px;
+    color: white;
+}
+
+.container{
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-container{
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.89);
+
+}
+
+form, form .pass, form .buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+form input{
+    width: 100%;
+    padding: 10px;
+}
+
+form .pass{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.visible-btn{
+    margin: 5px;
+}
+
+.no-btn-input{
+    margin: 15px 0;
+
+    background: transparent;
+    border: 0;
+    border-bottom: 3px solid rgba(238, 16, 16, 0.938);
+    color: white;
+    font-size: 18px;
+}
+
+.buttons{
+    width: 80%;
+    margin-top: 5px;
+    padding: 5px;
+}
+
+.btn-input{
+    margin: 10px;
+    font-size: 13px;
+    font-weight: bold;
+    background: rgba(238, 16, 16, 0.938);
+    border: 0;
+    color: rgba(255, 255, 255, 0.89);
+
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+.btn-input:hover{
+    color: rgba(0, 0, 0, 0.89);
+    background: rgb(248, 0, 0);
+    transition: transform 0.2s ease;
+    -webkit-transition: transform 0.2s ease;
+    -moz-transition: transform 0.2s ease;
+    -ms-transition: transform 0.2s ease;
+    -o-transition: transform 0.2s ease;
+    transform: translateY(-2px);
+    -webkit-transform: translateY(-2px);
+    -moz-transform: translateY(-2px);
+    -ms-transform: translateY(-2px);
+    -o-transform: translateY(-2px);
+}
