@@ -19,7 +19,7 @@ function crear_data_del_usuario(string $user_name, $conexion)
 
 function logear_al_usuario(string $user_name, $conexion)
 {
-    $estado_login = loggear_usuario('database/math.db', $_POST['user_name'], $_POST['user_pass']);
+    $estado_login = loggear_usuario('database/math.db', $user_name, $_POST['user_pass']);
 
     if ($estado_login != "loggin con exito") {
         global $error;
@@ -31,7 +31,7 @@ function logear_al_usuario(string $user_name, $conexion)
 
 function registrar_al_usuario(string $user_name, $conexion)
 {
-    $estado_registro = registrar_usuario('database/math.db', $_POST['user_name'], $_POST['user_pass']);
+    $estado_registro = registrar_usuario('database/math.db', $user_name, $_POST['user_pass']);
 
     if ($estado_registro == "El usuario ya existe") {
         global $error;
@@ -97,9 +97,11 @@ if ($_POST) {
                 <?php echo $error ?>
             </p>
             <form action="./index.php" method="post">
-                <input class="no-btn-input" type="text" name="user_name" id="user_name" placeholder="Introduzca su usuario" value="<?php echo $user_name; ?>" required>
+                <input class="no-btn-input" type="text" name="user_name" id="user_name"
+                    placeholder="Introduzca su usuario" value="<?php echo $user_name; ?>" required>
                 <div class="pass">
-                    <input class="no-btn-input" type="password" name="user_pass" id="user_pass" placeholder="Introduzca su contraseña" required>
+                    <input class="no-btn-input" type="password" name="user_pass" id="user_pass"
+                        placeholder="Introduzca su contraseña" required>
                     <button class="visible-btn"><img src="" alt="visible"></button>
                 </div>
                 <div class="buttons">

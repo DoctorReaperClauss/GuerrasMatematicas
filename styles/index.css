@@ -1,125 +1,128 @@
-:root{
-    --main-color: rgba(238, 16, 16, 0.938);
-    --text-color: white;
-    --container-color: rgba(0, 0, 0, 0.89);
+:root {
+	--main-color: rgba(238, 16, 16, 0.938);
+	--text-color: white;
+	--container-color: rgba(0, 0, 0, 0.89);
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-body{
-    background-image: url("../imgs/definitiva.jpg");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+body {
+	background-image: url('../imgs/definitiva.jpg');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
 }
 
-button, .btn-input{
-    cursor: pointer;
+button,
+.btn-input {
+	cursor: pointer;
 }
 
-h1, p{
-    text-align: center;
+h1,
+p {
+	text-align: center;
 }
 
-h1{
-    margin: 15px;
-    padding: 5px;
+h1 {
+	margin: 15px;
+	padding: 5px;
 
-    color: var(--main-color);
-    font-size: 45px;
-    font-weight: bold;
+	color: var(--main-color);
+	font-size: 45px;
+	font-weight: bold;
 }
 
-p{
-    margin: 5px;
-    color: var(--text-color);
+p {
+	margin: 5px;
+	color: var(--text-color);
 }
 
-.container{
-    width: 100%;
-    min-height: 100vh;
+.container {
+	width: 100%;
+	min-height: 100vh;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-.form-container{
-    padding: 15px;
-    background-color: var(--container-color);
-
+.form-container {
+	padding: 15px;
+	background-color: var(--container-color);
 }
 
-form, form .pass, form .buttons{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+form,
+form .pass,
+form .buttons {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
-form input{
-    width: 100%;
-    padding: 10px;
+form input {
+	width: 100%;
+	padding: 10px;
 }
 
-form .pass{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
+form .pass {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
 }
 
-.visible-btn{
-    margin: 5px;
+.visible-btn {
+	margin: 5px;
 }
 
-.no-btn-input{
-    margin: 15px 0;
+.no-btn-input {
+	margin: 15px 0;
 
-    background: transparent;
-    border: 0;
-    border-bottom: 3px solid var(--main-color);
-    color: var(--text-color);
-    font-size: 18px;
+	background: transparent;
+	border: 0;
+	border-bottom: 3px solid var(--main-color);
+	color: var(--text-color);
+	font-size: 18px;
 }
 
-.buttons{
-    width: 80%;
-    margin-top: 20px;
-    padding: 5px;
+.buttons {
+	width: 80%;
+	margin-top: 20px;
+	padding: 5px;
 }
 
-.btn-input{
-    margin: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    background: var(--main-color);
-    border: 0;
-    color: var(--text-color);
+.btn-input {
+	margin: 10px;
+	font-size: 16px;
+	font-weight: bold;
+	background: var(--main-color);
+	border: 0;
+	color: var(--text-color);
 
-    border-radius: 15px;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    -ms-border-radius: 15px;
-    -o-border-radius: 15px;
+	border-radius: 15px;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	-ms-border-radius: 15px;
+	-o-border-radius: 15px;
 }
 
-.btn-input:hover{
-    color: var(--container-color);
-    font-size: 17px;
-    transition: transform 0.2s ease;
-    -webkit-transition: transform 0.2s ease;
-    -moz-transition: transform 0.2s ease;
-    -ms-transition: transform 0.2s ease;
-    -o-transition: transform 0.2s ease;
-    transform: translateY(-2px);
-    -webkit-transform: translateY(-2px);
-    -moz-transform: translateY(-2px);
-    -ms-transform: translateY(-2px);
-    -o-transform: translateY(-2px);
+.btn-input:hover {
+	color: var(--container-color);
+	font-size: 17px;
+	transition: transform 0.2s ease;
+	-webkit-transition: transform 0.2s ease;
+	-moz-transition: transform 0.2s ease;
+	-ms-transition: transform 0.2s ease;
+	-o-transition: transform 0.2s ease;
+	transform: translateY(-2px);
+	-webkit-transform: translateY(-2px);
+	-moz-transform: translateY(-2px);
+	-ms-transform: translateY(-2px);
+	-o-transform: translateY(-2px);
 }
