@@ -7,6 +7,7 @@
 session_start();
 $conexion = new DBOPERATION('database/math.db');
 $error = '';
+$user_name = '';
 
 //funciones del usuario
 function crear_data_del_usuario(string $user_name, $conexion)
@@ -71,7 +72,8 @@ function POST_control(string $user_name, $conexion)
 //main
 if ($_POST) {
     if (POST_valido()) {
-        POST_control($_POST['user_name'], $conexion);
+        $user_name = $_POST['user_name'];
+        POST_control($user_name, $conexion);
     }
 }
 ?>
@@ -95,7 +97,7 @@ if ($_POST) {
                 <?php echo $error ?>
             </p>
             <form action="./index.php" method="post">
-                <input class="no-btn-input" type="text" name="user_name" id="user_name" placeholder="Introduzca su usuario" value="<?php if ($_POST) {echo $_POST['user_name'];} ?>" required>
+                <input class="no-btn-input" type="text" name="user_name" id="user_name" placeholder="Introduzca su usuario" value="<?php echo $user_name; ?>" required>
                 <div class="pass">
                     <input class="no-btn-input" type="password" name="user_pass" id="user_pass" placeholder="Introduzca su contraseña" required>
                     <button class="visible-btn"><img src="" alt="visible"></button>
