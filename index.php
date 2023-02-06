@@ -102,7 +102,7 @@ if ($_POST) {
                 <div class="pass">
                     <input class="no-btn-input" type="password" name="user_pass" id="user_pass"
                         placeholder="Introduzca su contraseña" required>
-                    <button class="visible-btn"><img src="" alt="visible"></button>
+                    <button class="visible-btn"><img id="eye" src="./imgs/ojo_abierto.png" alt="visible"></button>
                 </div>
                 <div class="buttons">
                     <input class="btn-input" type="submit" value="LOGEARSE" name="action">

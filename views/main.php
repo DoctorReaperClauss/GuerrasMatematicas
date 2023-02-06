@@ -14,7 +14,6 @@
 <body>
     <div class="container">
         <div class="menu">
-            <h2 class="copyright">Calculadora Marca: Carlos Alvarado</h2>
             <div class="title">
                 <h1>Guerras Matematicas</h1>
             </div>

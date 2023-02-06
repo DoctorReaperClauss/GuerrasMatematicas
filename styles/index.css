@@ -78,7 +78,15 @@ form .pass {
 }
 
 .visible-btn {
-	margin: 5px;
+	margin: 1px;
+	background: transparent;
+	border: 0;
+	filter: invert(1);
+	-webkit-filter: invert(1);
+}
+
+.visible-btn img{
+	width: 100%;
 }
 
 .no-btn-input {
