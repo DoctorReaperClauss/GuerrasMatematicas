@@ -17,7 +17,6 @@ function asignar_clase($level_number){
 
     return "bloqueado";
 }
-
 ?>
 
 <!DOCTYPE html>
