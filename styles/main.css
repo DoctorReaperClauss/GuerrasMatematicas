@@ -1,3 +1,9 @@
+:root {
+	--main-color: rgba(238, 16, 16, 0.938);
+	--text-color: white;
+	--container-color: rgba(0, 0, 0, 0.589);
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -7,16 +13,29 @@
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+body, button, .main-menu{
+	background-color: var(--container-color);
+	color: var(--text-color);
+}
+
+h1, h2, h3{
+	color: var(--main-color)
+}
+
 .container {
 	display: flex;
 	justify-content: center;
 
 	width: 100%;
 	height: 100vh;
+
+	background-image: url('../imgs/definitiva.jpg');
+	background-position: center;
+	background-size: cover;
 }
 
 .user-info {
-	width: 25%;
+	width: 20%;
 	padding: 15px;
 
 	text-align: center;
@@ -25,7 +44,8 @@
 	align-items: center;
 
 	word-wrap: break-word;
-	border: 1px solid black;
+	border: 1px solid var(--main-color);
+	background-color: rgba(0, 0, 0, 0.938);
 }
 
 .user-info h2,
@@ -37,12 +57,14 @@
 .user-info p {
 	width: 100%;
 	margin: 15px;
-	padding: 50px;
+	padding: 10px;
 	font-size: 50px;
 }
 
 .user-info .puntaje {
-	border: 1px solid black;
+	margin: 25px;
+	padding: 50px;
+	border: 1px solid var(--main-color);
 }
 
 .main-menu {
@@ -51,6 +73,7 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+
 }
 
 .form-container {
@@ -58,6 +81,7 @@
 	text-align: center;
 	display: flex;
 	flex-direction: column;
+
 }
 
 .form-container h1 {
@@ -86,4 +110,31 @@ table tr td button {
 	width: 100%;
 	padding: 20px;
 	font-size: 20px;
+}
+
+table tr td button:hover{
+	cursor: pointer;
+	font-size: 22px;
+	filter: saturate(50);
+	-webkit-filter: saturate(50);
+	background-color: rgba(0, 0, 0, 0.78);
+
+	transition: transform 0.5s ease;
+	-webkit-transition: transform 0.5s ease;
+	-moz-transition: transform 0.5s ease;
+	-ms-transition: transform 0.5s ease;
+	-o-transition: transform 0.5s ease;
+	transform: translateY(-4px);
+	-webkit-transform: translateY(-4px);
+	-moz-transform: translateY(-4px);
+	-ms-transform: translateY(-4px);
+	-o-transform: translateY(-4px);
+}
+
+.desbloqueado{
+	color: rgba(41, 240, 41, 0.897);
+}
+
+.bloqueado{
+	color: var(--main-color);
 }
