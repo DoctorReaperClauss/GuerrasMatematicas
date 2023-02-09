@@ -37,40 +37,44 @@ function asignar_clase($level_number){
             <h2>Usuario</h2>
             <p> <?php echo $user_name; ?> </p>
             <h3>Puntaje</h3>
-            <p> <?php echo $user_score ?> </p>
+            <p class="puntaje"> <?php echo $user_score ?> </p>
         </aside>
         <div class="main-menu">
-            <h1>Guerras Matematicas</h1>
-            <table>
-                <tr>
-                    <td class="nivel <?php echo asignar_clase(0) ?>">NIVEL 1</td>
-                    <td class="nivel <?php echo asignar_clase(1) ?>">NIVEL 2</td>
-                    <td class="nivel <?php echo asignar_clase(2) ?>">NIVEL 3</td>
-                    <td class="nivel <?php echo asignar_clase(3) ?>">NIVEL 4</td>
-                    <td class="nivel <?php echo asignar_clase(4) ?>">NIVEL 5</td>
-                </tr>
-                <tr>
-                    <td class="nivel <?php echo asignar_clase(5) ?>">NIVEL 6</td>
-                    <td class="nivel <?php echo asignar_clase(6) ?>">NIVEL 7</td>
-                    <td class="nivel <?php echo asignar_clase(7) ?>">NIVEL 8</td>
-                    <td class="nivel <?php echo asignar_clase(8) ?>">NIVEL 9</td>
-                    <td class="nivel <?php echo asignar_clase(9) ?>">NIVEL 10</td>
-                </tr>
-                <tr>
-                    <td class="nivel <?php echo asignar_clase(10) ?>">NIVEL 11</td>
-                    <td class="nivel <?php echo asignar_clase(11) ?>">NIVEL 12</td>
-                    <td class="nivel <?php echo asignar_clase(12) ?>">NIVEL 13</td>
-                    <td class="nivel <?php echo asignar_clase(13) ?>">NIVEL 14</td>
-                    <td class="nivel <?php echo asignar_clase(14) ?>">NIVEL 15</td>
-                </tr>
-                <tr>
-                    <td class="nivel <?php echo asignar_clase(15) ?>">NIVEL 16</td>
-                    <td class="nivel <?php echo asignar_clase(16) ?>">NIVEL 17</td>
-                    <td class="nivel <?php echo asignar_clase(17) ?>">NIVEL 18</td>
-                    <td class="nivel <?php echo asignar_clase(18) ?>">NIVEL 19</td>
-                    <td class="nivel <?php echo asignar_clase(19) ?>">NIVEL 20</td>
-                </tr>
-            </table>
+            <div class="form-container">
+                <h1>Guerras Matematicas</h1>
+                <table>
+                    <tr>
+                        <td class="nivel <?php echo asignar_clase(0) ?>"><button>NIVEL 1</button></td>
+                        <td class="nivel <?php echo asignar_clase(1) ?>"><button>NIVEL 2</button></td>
+                        <td class="nivel <?php echo asignar_clase(2) ?>"><button>NIVEL 3</button></td>
+                        <td class="nivel <?php echo asignar_clase(3) ?>"><button>NIVEL 4</button></td>
+                    </tr>
+                    <tr>
+                        <td class="nivel <?php echo asignar_clase(4) ?>"><button>NIVEL 5</button></td>
+                        <td class="nivel <?php echo asignar_clase(5) ?>"><button>NIVEL 6</button></td>
+                        <td class="nivel <?php echo asignar_clase(6) ?>"><button>NIVEL 7</button></td>
+                        <td class="nivel <?php echo asignar_clase(7) ?>"><button>NIVEL 8</button></td>
+                    </tr>
+                    <tr>
+                        <td class="nivel <?php echo asignar_clase(8) ?>"><button>NIVEL 9</button></td>
+                        <td class="nivel <?php echo asignar_clase(9) ?>"><button>NIVEL 10</button></td>
+                        <td class="nivel <?php echo asignar_clase(10) ?>"><button>NIVEL 11</button></td>
+                        <td class="nivel <?php echo asignar_clase(11) ?>"><button>NIVEL 12</button></td>
+                    </tr>
+                    <tr>
+                        <td class="nivel <?php echo asignar_clase(12) ?>"><button>NIVEL 13</button></td>
+                        <td class="nivel <?php echo asignar_clase(13) ?>"><button>NIVEL 14</button></td>
+                        <td class="nivel <?php echo asignar_clase(14) ?>"><button>NIVEL 15</button></td>
+                        <td class="nivel <?php echo asignar_clase(15) ?>"><button>NIVEL 16</button></td>
+                    </tr>
+                    <tr>
+                        <td class="nivel <?php echo asignar_clase(16) ?>"><button>NIVEL 17</button></td>
+                        <td class="nivel <?php echo asignar_clase(17) ?>"><button>NIVEL 18</button></td>
+                        <td class="nivel <?php echo asignar_clase(18) ?>"><button>NIVEL 19</button></td>
+                        <td class="nivel <?php echo asignar_clase(19) ?>"><button>NIVEL 20</button></td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 </body>

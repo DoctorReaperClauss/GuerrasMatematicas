@@ -3,4 +3,87 @@
 	padding: 0;
 	box-sizing: border-box;
 	text-decoration: none;
+
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+
+	width: 100%;
+	height: 100vh;
+}
+
+.user-info {
+	width: 25%;
+	padding: 15px;
+
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	word-wrap: break-word;
+	border: 1px solid black;
+}
+
+.user-info h2,
+.user-info h3 {
+	width: 100%;
+	font-size: 45px;
+}
+
+.user-info p {
+	width: 100%;
+	margin: 15px;
+	padding: 50px;
+	font-size: 50px;
+}
+
+.user-info .puntaje {
+	border: 1px solid black;
+}
+
+.main-menu {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.form-container {
+	margin-bottom: 5%;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+}
+
+.form-container h1 {
+	width: 100%;
+	padding: 30px;
+	font-size: 55px;
+}
+
+table {
+	width: 100%;
+}
+
+table tr {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+table tr td {
+	width: 100%;
+	margin: 4px;
+}
+
+table tr td button {
+	width: 100%;
+	padding: 20px;
+	font-size: 20px;
 }
