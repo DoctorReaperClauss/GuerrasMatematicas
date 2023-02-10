@@ -11,7 +11,7 @@ function asignar_clase($level_number){
     global $user_levels;
     $level_info = $user_levels[$level_number];
 
-    if($level_info['level_status'] == 1){ //nivel desbloqueado
+    if($level_info['level_status'] == 1 || $level_info['level_status'] == 2){ //nivel desbloqueado
         return "desbloqueado";
     }
 
@@ -26,7 +26,8 @@ function asignar_clase($level_number){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="shortcut icon" href="../imgs/perfil.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="./styles/main.css">
     <title>Guerras Matematicas</title>
 </head>
 
@@ -36,7 +37,7 @@ function asignar_clase($level_number){
             <h2>Usuario</h2>
             <p> <?php echo $user_name; ?> </p>
             <h3>Puntaje</h3>
-            <p class="puntaje"> <?php echo $user_score ?> </p>
+            <p class="puntaje"> <?php echo $user_score?> </p>
         </aside>
         <div class="main-menu">
             <div class="form-container">
