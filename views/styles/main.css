@@ -14,18 +14,21 @@
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-body, .main-menu{
+body,
+.main-menu {
 	background-color: var(--container-color);
 	color: var(--text-color);
 }
 
-button{
+button {
 	background-color: var(--container-color2);
 	color: var(--text-color);
 }
 
-h1, h2, h3{
-	color: var(--main-color)
+h1,
+h2,
+h3 {
+	color: var(--main-color);
 }
 
 .container {
@@ -84,14 +87,12 @@ h1, h2, h3{
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-
 }
 
 .form-container {
 	text-align: center;
 	display: flex;
 	flex-direction: column;
-
 }
 
 .form-container h1 {
@@ -133,7 +134,7 @@ table tr td button {
 	-o-border-radius: 5px;
 }
 
-table tr td button:hover{
+table tr td button:hover {
 	cursor: pointer;
 	font-size: 22px;
 	filter: saturate(50);
@@ -152,10 +153,10 @@ table tr td button:hover{
 	-o-transform: translateY(-4px);
 }
 
-.desbloqueado{
+.desbloqueado {
 	color: rgba(41, 240, 41, 0.897);
 }
 
-.bloqueado{
+.bloqueado {
 	color: var(--main-color);
 }
