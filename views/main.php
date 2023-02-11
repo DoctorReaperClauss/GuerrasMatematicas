@@ -26,7 +26,7 @@ function asignar_clase($level_number){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../imgs/perfil.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="./imgs/perfil.jpg" type="image/x-icon">
     <link rel="stylesheet" href="./styles/main.css">
     <title>Guerras Matematicas</title>
 </head>

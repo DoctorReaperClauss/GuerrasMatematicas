@@ -4,10 +4,10 @@ document.querySelector('.visible-btn').addEventListener('click', (e) => {
 	const eye = document.getElementById('eye');
 
 	if (pass_input['type'] == 'password') {
-		eye['src'] = './imgs/ojo_cerrado.png';
+		eye['src'] = "./views/imgs/ojo_cerrado.png";
 		pass_input['type'] = 'text';
 	} else {
-		eye['src'] = './imgs/ojo_abierto.png';
+		eye['src'] = "./views/imgs/ojo_abierto.png";
 		pass_input['type'] = 'password';
 	}
 });
