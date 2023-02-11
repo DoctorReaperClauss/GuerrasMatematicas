@@ -86,7 +86,7 @@ if ($_POST) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    <link rel="shortcut icon" href="./imgs/perfil.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="./views/imgs/perfil.jpg" type="image/x-icon">
     <title>Guerras Matemáticas</title>
 </head>
 
@@ -103,7 +103,7 @@ if ($_POST) {
                 <div class="pass">
                     <input class="no-btn-input" type="password" name="user_pass" id="user_pass"
                         placeholder="Introduzca su contraseña" required>
-                    <button class="visible-btn"><img id="eye" src="./imgs/ojo_abierto.png" alt="visible"></button>
+                    <button class="visible-btn"><img id="eye" src="./views/imgs/ojo_abierto.png" alt="visible"></button>
                 </div>
                 <div class="buttons">
                     <input class="btn-input" type="submit" value="LOGEARSE" name="action">
