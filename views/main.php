@@ -1,5 +1,6 @@
 <?php include_once "../utils/session.validator.php" ?>
 <?php include_once "../utils/user.getter.php" ?>
+<?php include_once "../utils/session.level.setter.php" ?>
 
 <?php
 $user_name = $_SESSION['user'];
@@ -17,6 +18,12 @@ function asignar_clase($level_number){
 
     return "bloqueado";
 }
+
+if($_GET){
+    set_session_level($_GET['level']);
+    header('location:level.php');
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -26,8 +33,8 @@ function asignar_clase($level_number){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./imgs/perfil.jpg" type="image/x-icon">
-    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="shortcut icon" href="../public/imgs/perfil.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="../public/styles/main.css">
     <title>Guerras Matematicas</title>
 </head>
 
@@ -42,38 +49,38 @@ function asignar_clase($level_number){
         <div class="main-menu">
             <div class="form-container">
                 <h1>Guerras Matemáticas</h1>
-                <table>
-                    <tr>
-                        <td><button class="<?php echo asignar_clase(0) ?>">NIVEL 1</button></td>
-                        <td><button class="<?php echo asignar_clase(1) ?>">NIVEL 2</button></td>
-                        <td><button class="<?php echo asignar_clase(2) ?>">NIVEL 3</button></td>
-                        <td><button class="<?php echo asignar_clase(3) ?>">NIVEL 4</button></td>
-                    </tr>
-                    <tr>
-                        <td><button class="<?php echo asignar_clase(4) ?>">NIVEL 5</button></td>
-                        <td><button class="<?php echo asignar_clase(5) ?>">NIVEL 6</button></td>
-                        <td><button class="<?php echo asignar_clase(6) ?>">NIVEL 7</button></td>
-                        <td><button class="<?php echo asignar_clase(7) ?>">NIVEL 8</button></td>
-                    </tr>
-                    <tr>
-                        <td><button class="<?php echo asignar_clase(8) ?>">NIVEL 9</button></td>
-                        <td><button class="<?php echo asignar_clase(9) ?>">NIVEL 10</button></td>
-                        <td><button class="<?php echo asignar_clase(10) ?>">NIVEL 11</button></td>
-                        <td><button class="<?php echo asignar_clase(11) ?>">NIVEL 12</button></td>
-                    </tr>
-                    <tr>
-                        <td><button class="<?php echo asignar_clase(12) ?>">NIVEL 13</button></td>
-                        <td><button class="<?php echo asignar_clase(13) ?>">NIVEL 14</button></td>
-                        <td><button class="<?php echo asignar_clase(14) ?>">NIVEL 15</button></td>
-                        <td><button class="<?php echo asignar_clase(15) ?>">NIVEL 16</button></td>
-                    </tr>
-                    <tr>
-                        <td><button class="<?php echo asignar_clase(16) ?>">NIVEL 17</button></td>
-                        <td><button class="<?php echo asignar_clase(17) ?>">NIVEL 18</button></td>
-                        <td><button class="<?php echo asignar_clase(18) ?>">NIVEL 19</button></td>
-                        <td><button class="<?php echo asignar_clase(19) ?>">NIVEL 20</button></td>
-                    </tr>
-                </table>
+                <form action="main.php", method="get">
+                    <div class="form-row">
+                        <input name="level" type="submit" class="<?php echo asignar_clase(0) ?>" value="NIVEL 1">
+                        <input name="level" type="submit" class="<?php echo asignar_clase(1) ?>" value="NIVEL 2">
+                        <input name="level" type="submit" class="<?php echo asignar_clase(2) ?>" value="NIVEL 3">
+                        <input name="level" type="submit" class="<?php echo asignar_clase(3) ?>" value="NIVEL 4">
+                    </div>
+                    <div class="form-row">
+                        <input name="level" type="submit" class="<?php echo asignar_clase(4) ?>" value="NIVEL 5">
+                        <input name="level" type="submit" class="<?php echo asignar_clase(5) ?>" value="NIVEL 6">
+                        <input name="level" type="submit" class="<?php echo asignar_clase(6) ?>" value="NIVEL 7">
+                        <input name="level" type="submit" class="<?php echo asignar_clase(7) ?>" value="NIVEL 8">
+                    </div>
+                    <div class="form-row">
+                        <input name="level" type="submit" class="<?php echo asignar_clase(8) ?>" value="NIVEL 9">
+                        <input name="level" type="submit" class="<?php echo asignar_clase(9) ?>" value="NIVEL 10">
+                        <input name="level" type="submit" class="<?php echo asignar_clase(10) ?>" value="NIVEL 11">
+                        <input name="level" type="submit" class="<?php echo asignar_clase(11) ?>" value="NIVEL 12">
+                    </div>
+                    <div class="form-row">
+                        <input name="level" type="submit" class="<?php echo asignar_clase(12) ?>" value="NIVEL 13">
+                        <input name="level" type="submit" class="<?php echo asignar_clase(13) ?>" value="NIVEL 14">
+                        <input name="level" type="submit" class="<?php echo asignar_clase(14) ?>" value="NIVEL 15">
+                        <input name="level" type="submit" class="<?php echo asignar_clase(15) ?>" value="NIVEL 16">
+                    </div>
+                    <div class="form-row">
+                        <input name="level" type="submit" class="<?php echo asignar_clase(16) ?>" value="NIVEL 17">
+                        <input name="level" type="submit" class="<?php echo asignar_clase(17) ?>" value="NIVEL 18">
+                        <input name="level" type="submit" class="<?php echo asignar_clase(18) ?>" value="NIVEL 19">
+                        <input name="level" type="submit" class="<?php echo asignar_clase(19) ?>" value="NIVEL 20">
+                    </div>
+                </form>
             </div>
         </div>
     </div>

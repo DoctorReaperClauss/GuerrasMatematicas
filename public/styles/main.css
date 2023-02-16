@@ -20,7 +20,7 @@ body,
 	color: var(--text-color);
 }
 
-button {
+input {
 	background-color: var(--container-color2);
 	color: var(--text-color);
 }
@@ -107,23 +107,23 @@ h3 {
 	-o-border-radius: 5px;
 }
 
-table {
+form{
 	width: 100%;
 }
 
-table tr {
+form .form-row {
 	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
 }
 
-table tr td {
+form .form-row input {
 	width: 100%;
 	margin: 4px;
 }
 
-table tr td button {
+form .form-row input{
 	width: 100%;
 	padding: 20px;
 	font-size: 20px;
@@ -134,7 +134,7 @@ table tr td button {
 	-o-border-radius: 5px;
 }
 
-table tr td button:hover {
+form .form-row input:hover {
 	cursor: pointer;
 	font-size: 22px;
 	filter: saturate(50);
