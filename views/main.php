@@ -8,7 +8,7 @@ $user_id = id_usuario($user_name);
 $user_score = puntaje_usuario($user_id);
 $user_levels = progreso_niveles_usuario($user_id);
 
-function asignar_clase($level_number){
+function validar_desbloqueado_cerrado($level_number){
     global $user_levels;
     $level_info = $user_levels[$level_number];
 
@@ -19,9 +19,12 @@ function asignar_clase($level_number){
     return "bloqueado";
 }
 
-if($_GET){
-    set_session_level($_GET['level']);
-    header('location:level.php');
+if($_POST){
+    $level_number = set_session_level($_POST['level']);
+    if(validar_desbloqueado_cerrado($level_number) == "desbloqueado"){
+        $_SESSION['level_id'] = $level_number;
+        header("location:level.php");
+    }
 }
 
 ?>
@@ -49,36 +52,36 @@ if($_GET){
         <div class="main-menu">
             <div class="form-container">
                 <h1>Guerras Matemáticas</h1>
-                <form action="main.php", method="get">
+                <form action="main.php", method="post">
                     <div class="form-row">
-                        <input name="level" type="submit" class="<?php echo asignar_clase(0) ?>" value="NIVEL 1">
-                        <input name="level" type="submit" class="<?php echo asignar_clase(1) ?>" value="NIVEL 2">
-                        <input name="level" type="submit" class="<?php echo asignar_clase(2) ?>" value="NIVEL 3">
-                        <input name="level" type="submit" class="<?php echo asignar_clase(3) ?>" value="NIVEL 4">
+                        <input name="level" type="submit" class="<?php echo validar_desbloqueado_cerrado(0) ?>" value="NIVEL 1">
+                        <input name="level" type="submit" class="<?php echo validar_desbloqueado_cerrado(1) ?>" value="NIVEL 2">
+                        <input name="level" type="submit" class="<?php echo validar_desbloqueado_cerrado(2) ?>" value="NIVEL 3">
+                        <input name="level" type="submit" class="<?php echo validar_desbloqueado_cerrado(3) ?>" value="NIVEL 4">
                     </div>
                     <div class="form-row">
-                        <input name="level" type="submit" class="<?php echo asignar_clase(4) ?>" value="NIVEL 5">
-                        <input name="level" type="submit" class="<?php echo asignar_clase(5) ?>" value="NIVEL 6">
-                        <input name="level" type="submit" class="<?php echo asignar_clase(6) ?>" value="NIVEL 7">
-                        <input name="level" type="submit" class="<?php echo asignar_clase(7) ?>" value="NIVEL 8">
+                        <input name="level" type="submit" class="<?php echo validar_desbloqueado_cerrado(4) ?>" value="NIVEL 5">
+                        <input name="level" type="submit" class="<?php echo validar_desbloqueado_cerrado(5) ?>" value="NIVEL 6">
+                        <input name="level" type="submit" class="<?php echo validar_desbloqueado_cerrado(6) ?>" value="NIVEL 7">
+                        <input name="level" type="submit" class="<?php echo validar_desbloqueado_cerrado(7) ?>" value="NIVEL 8">
                     </div>
                     <div class="form-row">
-                        <input name="level" type="submit" class="<?php echo asignar_clase(8) ?>" value="NIVEL 9">
-                        <input name="level" type="submit" class="<?php echo asignar_clase(9) ?>" value="NIVEL 10">
-                        <input name="level" type="submit" class="<?php echo asignar_clase(10) ?>" value="NIVEL 11">
-                        <input name="level" type="submit" class="<?php echo asignar_clase(11) ?>" value="NIVEL 12">
+                        <input name="level" type="submit" class="<?php echo validar_desbloqueado_cerrado(8) ?>" value="NIVEL 9">
+                        <input name="level" type="submit" class="<?php echo validar_desbloqueado_cerrado(9) ?>" value="NIVEL 10">
+                        <input name="level" type="submit" class="<?php echo validar_desbloqueado_cerrado(10) ?>" value="NIVEL 11">
+                        <input name="level" type="submit" class="<?php echo validar_desbloqueado_cerrado(11) ?>" value="NIVEL 12">
                     </div>
                     <div class="form-row">
-                        <input name="level" type="submit" class="<?php echo asignar_clase(12) ?>" value="NIVEL 13">
-                        <input name="level" type="submit" class="<?php echo asignar_clase(13) ?>" value="NIVEL 14">
-                        <input name="level" type="submit" class="<?php echo asignar_clase(14) ?>" value="NIVEL 15">
-                        <input name="level" type="submit" class="<?php echo asignar_clase(15) ?>" value="NIVEL 16">
+                        <input name="level" type="submit" class="<?php echo validar_desbloqueado_cerrado(12) ?>" value="NIVEL 13">
+                        <input name="level" type="submit" class="<?php echo validar_desbloqueado_cerrado(13) ?>" value="NIVEL 14">
+                        <input name="level" type="submit" class="<?php echo validar_desbloqueado_cerrado(14) ?>" value="NIVEL 15">
+                        <input name="level" type="submit" class="<?php echo validar_desbloqueado_cerrado(15) ?>" value="NIVEL 16">
                     </div>
                     <div class="form-row">
-                        <input name="level" type="submit" class="<?php echo asignar_clase(16) ?>" value="NIVEL 17">
-                        <input name="level" type="submit" class="<?php echo asignar_clase(17) ?>" value="NIVEL 18">
-                        <input name="level" type="submit" class="<?php echo asignar_clase(18) ?>" value="NIVEL 19">
-                        <input name="level" type="submit" class="<?php echo asignar_clase(19) ?>" value="NIVEL 20">
+                        <input name="level" type="submit" class="<?php echo validar_desbloqueado_cerrado(16) ?>" value="NIVEL 17">
+                        <input name="level" type="submit" class="<?php echo validar_desbloqueado_cerrado(17) ?>" value="NIVEL 18">
+                        <input name="level" type="submit" class="<?php echo validar_desbloqueado_cerrado(18) ?>" value="NIVEL 19">
+                        <input name="level" type="submit" class="<?php echo validar_desbloqueado_cerrado(19) ?>" value="NIVEL 20">
                     </div>
                 </form>
             </div>

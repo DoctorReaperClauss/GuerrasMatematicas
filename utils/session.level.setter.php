@@ -2,65 +2,45 @@
 function set_session_level($level_reference){
     switch($level_reference){
         case "NIVEL 1":
-            $_SESSION['level_id'] = 0;
-            break;
+            return 0;
         case "NIVEL 2":
-            $_SESSION['level_id'] = 1;
-            break;
+            return 1;
         case "NIVEL 3":
-            $_SESSION['level_id'] = 2;
-            break;
+            return 2;
         case "NIVEL 4":
-            $_SESSION['level_id'] = 3;
-            break;
+            return 3;
         case "NIVEL 5":
-            $_SESSION['level_id'] = 4;
-            break;
+            return 4;
         case "NIVEL 6":
-            $_SESSION['level_id'] = 5;
-            break;
+            return 5;
         case "NIVEL 7":
-            $_SESSION['level_id'] = 6;
-            break;
+            return 6;
         case "NIVEL 8":
-            $_SESSION['level_id'] = 7;
-            break;
+            return 7;
         case "NIVEL 9":
-            $_SESSION['level_id'] = 8;
-            break;
+            return 8;
         case "NIVEL 10":
-            $_SESSION['level_id'] = 9;
-            break;
+            return 9;
         case "NIVEL 11":
-            $_SESSION['level_id'] = 10;
-            break;
+            return 10;
         case "NIVEL 12":
-            $_SESSION['level_id'] = 11;
-            break;
+            return 11;
         case "NIVEL 13":
-            $_SESSION['level_id'] = 12;
-            break;
+            return 12;
         case "NIVEL 14":
-            $_SESSION['level_id'] = 13;
-            break;
+            return 13;
         case "NIVEL 15":
-            $_SESSION['level_id'] = 14;
-            break;
+            return 14;
         case "NIVEL 16":
-            $_SESSION['level_id'] = 15;
-            break;
+            return 15;
         case "NIVEL 17":
-            $_SESSION['level_id'] = 16;
-            break;
+            return 16;
         case "NIVEL 18":
-            $_SESSION['level_id'] = 17;
-            break;
+            return 17;
         case "NIVEL 19":
-            $_SESSION['level_id'] = 18;
-            break;
+            return 18;
         case "NIVEL 20":
-            $_SESSION['level_id'] = 19;
-            break;
+            return 19;
         default:
             echo "adios";
     }
