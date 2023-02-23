@@ -4,7 +4,9 @@
 <?php
 $level = get_levels($_SESSION['level_id']);
 
-print_r($level);
+if($_POST){
+    print_r($_POST);
+}
 
 ?>
 
@@ -17,6 +19,9 @@ print_r($level);
     <title>Document</title>
 </head>
 <body>
+    <form action="level.php", method="post">
+        <input class="btn-pista" type="submit" value="Pista" name="pista">
+    </form>
 
 </body>
 </html>
