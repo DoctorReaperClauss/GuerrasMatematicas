@@ -1,5 +1,12 @@
 <?php include_once "../utils/level.validator.php" ?>
+<?php include_once "../controllers/level.controller.php" ?>
 
+<?php
+$level = get_levels($_SESSION['level_id']);
+
+print_r($level);
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
