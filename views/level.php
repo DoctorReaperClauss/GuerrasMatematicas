@@ -8,6 +8,7 @@ $resultado_2 = '';
 $resultado_3 = '';
 $resultado_4 = '';
 $resultado_5 = '';
+$resultados = '';
 $error = array();
 
 function inputs_vacios($array){
@@ -21,10 +22,6 @@ function inputs_vacios($array){
 
 function inputs_no_numericos($array){
     foreach ($array as $key => $value){
-        if($key == "form-control"){
-            continue;
-        }
-
         if(!is_numeric($value)){
             return true;
         }
@@ -41,17 +38,19 @@ if($_POST){
         $resultado_4 = $_POST['resultado-4'];
         $resultado_5 = $_POST['resultado-5'];
 
+        $resultados = array($resultado_1, $resultado_2, $resultado_3, $resultado_4, $resultado_5);
+
         //validaciones
-        if(inputs_vacios($_POST)){
+        if(inputs_vacios($resultados)){
             array_push($error, "Hay ejercicios sin resolver, por favor resuelvalos todos antes");
         }
-        if(inputs_no_numericos($_POST)){
+        if(inputs_no_numericos($resultados)){
             array_push($error, "Todos los datos deben ser numeros, por favor compruebe sus respuestas");
         }
 
         if(sizeof($error) == 0){
             //codigo para validar los resultados
-            print_r("hola");
+            print_r($level);
         }
     }elseif($_POST['form-control'] == 'Canjear Pista'){
         //falta por implementar la logica de las pistas
