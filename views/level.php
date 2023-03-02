@@ -28,6 +28,50 @@ function inputs_no_numericos($array){
     }
 }
 
+function obtener_que_resultado_esta_mal($index){
+    global $error;
+    switch($index){
+        case 0:
+            array_push($error, "El ejercicio 1 es incorrecto");
+            break;
+        case 1:
+            array_push($error, "El ejercicio 2 es incorrecto");
+            break;
+        case 2:
+            array_push($error, "El ejercicio 3 es incorrecto");
+            break;
+        case 3:
+            array_push($error, "El ejercicio 4 es incorrecto");
+            break;
+        case 4:
+            array_push($error, "El ejercicio 5 es incorrecto");
+            break;
+        default:
+            array_push($error, "El ejercicio 1 es incorrecto");
+            break;
+    }
+}
+
+function validar_resultados($array){
+    global $level;
+    $resultado_de_los_ejercicios = array(
+            $level['EJERCICIO_1']["RESULTADO"],
+            $level['EJERCICIO_2']["RESULTADO"],
+            $level['EJERCICIO_3']["RESULTADO"],
+            $level['EJERCICIO_4']["RESULTADO"],
+            $level['EJERCICIO_5']["RESULTADO"]
+    );
+    for($i = 0; $i<sizeof($resultado_de_los_ejercicios); $i++){
+        if($array[$i] == $resultado_de_los_ejercicios[$i]){
+            continue;
+        }
+        else{
+            obtener_que_resultado_esta_mal($i);
+        }
+    }
+
+}
+
 if($_POST){
     if($_POST['form-control'] == 'Validar Resultados'){
         //asignar valores a cada variable para poder mostrarselas al usuario
@@ -50,8 +94,10 @@ if($_POST){
 
         if(sizeof($error) == 0){
             //codigo para validar los resultados
-            print_r($level);
+            validar_resultados($resultados);
+            print_r($error);
         }
+
     }elseif($_POST['form-control'] == 'Canjear Pista'){
         //falta por implementar la logica de las pistas
     }
