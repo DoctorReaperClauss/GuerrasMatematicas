@@ -1,5 +1,6 @@
 <?php include_once "../utils/level.validator.php" ?>
 <?php include_once "../controllers/level.controller.php" ?>
+<?php include_once "../utils/score.operation.php" ?>
 
 <?php
 $level = get_levels($_SESSION['level_id']);
@@ -95,7 +96,13 @@ if($_POST){
         if(sizeof($error) == 0){
             //codigo para validar los resultados
             validar_resultados($resultados);
-            print_r($error);
+
+            //si despues de validar, no hay ningun ejercicio equivocado
+            //entonces aplica la logica para sumar puntuacion
+            if(sizeof($error) == 0){
+                sumar_puntuacion("../database/math.db");
+                header("location:main.php");
+            }
         }
 
     }elseif($_POST['form-control'] == 'Canjear Pista'){
