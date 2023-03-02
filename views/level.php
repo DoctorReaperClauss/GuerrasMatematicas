@@ -101,6 +101,7 @@ if($_POST){
             //entonces aplica la logica para sumar puntuacion
             if(sizeof($error) == 0){
                 sumar_puntuacion("../database/math.db");
+                desbloquear_siguiente_nivel($_SESSION['level_id'], "../database/math.db");
                 header("location:main.php");
             }
         }
