@@ -19,8 +19,8 @@ function validar_desbloqueado_cerrado($level_number){
     return "bloqueado";
 }
 
-if($_POST){
-    $level_number = set_session_level($_POST['level']);
+if($_GET){
+    $level_number = set_session_level($_GET['level']);
     if(validar_desbloqueado_cerrado($level_number) == "desbloqueado"){
         $_SESSION['level_id'] = $level_number;
         header("location:level.php");
@@ -52,7 +52,7 @@ if($_POST){
         <div class="main-menu">
             <div class="form-container">
                 <h1>Guerras Matemáticas</h1>
-                <form action="main.php", method="post">
+                <form action="main.php", method="get">
                     <div class="form-row">
                         <input name="level" type="submit" class="<?php echo validar_desbloqueado_cerrado(0) ?>" value="NIVEL 1">
                         <input name="level" type="submit" class="<?php echo validar_desbloqueado_cerrado(1) ?>" value="NIVEL 2">
