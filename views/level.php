@@ -10,6 +10,7 @@ $resultado_3 = '';
 $resultado_4 = '';
 $resultado_5 = '';
 $resultados = '';
+$mensaje_pista = '';
 $error = array();
 
 function inputs_vacios($array){
@@ -53,7 +54,7 @@ function obtener_que_resultado_esta_mal($index){
     }
 }
 
-function validar_resultados($array){
+function validar_resultados($array, $pista = false){
     global $level;
     $resultado_de_los_ejercicios = array(
             $level['EJERCICIO_1']["RESULTADO"],
@@ -67,24 +68,69 @@ function validar_resultados($array){
             continue;
         }
         else{
-            obtener_que_resultado_esta_mal($i);
+            if($pista == false){
+                //en caso de que no se quiera obtener una pista para resolver el ejercicio
+                //y se quiera unicamente validar si alguna esta malo
+                obtener_que_resultado_esta_mal($i);
+            }else{
+                //si se quiere obtener la pista para el primer ejercicio no resuelto
+                //se devuelve el identificador de ese ejercicio
+                return $i;
+            }
         }
     }
+}
 
+function obtener_pista($id_ejercicio){
+    if($id_ejercicio == ""){
+        return '';
+    }
+    global $level;
+    $resultado_de_los_ejercicios = array(
+            $level['EJERCICIO_1']["RESULTADO"],
+            $level['EJERCICIO_2']["RESULTADO"],
+            $level['EJERCICIO_3']["RESULTADO"],
+            $level['EJERCICIO_4']["RESULTADO"],
+            $level['EJERCICIO_5']["RESULTADO"]
+    );
+    $mensaje = "";
+    //mensaje personalizado para cada ejercicio
+    switch($id_ejercicio){
+        case 0:
+            $mensaje = "El resultado del ejercicio 1 es: $resultado_de_los_ejercicios[$id_ejercicio]";
+            break;
+        case 1:
+            $mensaje = "El resultado del ejercicio 2 es: $resultado_de_los_ejercicios[$id_ejercicio]";
+            break;
+        case 2:
+            $mensaje = "El resultado del ejercicio 3 es: $resultado_de_los_ejercicios[$id_ejercicio]";
+            break;
+        case 3:
+            $mensaje = "El resultado del ejercicio 4 es: $resultado_de_los_ejercicios[$id_ejercicio]";
+            break;
+        case 4:
+            $mensaje = "El resultado del ejercicio 5 es: $resultado_de_los_ejercicios[$id_ejercicio]";
+            break;
+        default:
+            $mensaje = "hola";
+            break;
+    }
+    operar_puntuacion("../database/math.db", "restar");
+    return $mensaje;
 }
 
 if($_POST){
+    //asignar valores a cada variable para poder mostrarselas al usuario
+    //y que no tenga que reescribir todo una y otra vez
+    $resultado_1 = $_POST['resultado-1'];
+    $resultado_2 = $_POST['resultado-2'];
+    $resultado_3 = $_POST['resultado-3'];
+    $resultado_4 = $_POST['resultado-4'];
+    $resultado_5 = $_POST['resultado-5'];
+
+    $resultados = array($resultado_1, $resultado_2, $resultado_3, $resultado_4, $resultado_5);
+
     if($_POST['form-control'] == 'Validar Resultados'){
-        //asignar valores a cada variable para poder mostrarselas al usuario
-        //y que no tenga que reescribir todo una y otra vez
-        $resultado_1 = $_POST['resultado-1'];
-        $resultado_2 = $_POST['resultado-2'];
-        $resultado_3 = $_POST['resultado-3'];
-        $resultado_4 = $_POST['resultado-4'];
-        $resultado_5 = $_POST['resultado-5'];
-
-        $resultados = array($resultado_1, $resultado_2, $resultado_3, $resultado_4, $resultado_5);
-
         //validaciones
         if(inputs_vacios($resultados)){
             array_push($error, "Hay ejercicios sin resolver, por favor resuelvalos todos antes");
@@ -100,21 +146,23 @@ if($_POST){
             //si despues de validar, no hay ningun ejercicio equivocado
             //entonces aplica la logica para sumar puntuacion
             if(sizeof($error) == 0){
-                sumar_puntuacion("../database/math.db");
+                operar_puntuacion("../database/math.db", "sumar");
                 desbloquear_siguiente_nivel($_SESSION['level_id'], "../database/math.db");
                 header("location:main.php");
             }
         }
 
-    }elseif($_POST['form-control'] == 'Canjear Pista'){
+    }elseif($_POST['form-control'] == 'Canjear Pista (-1 Puntuación)'){
         //falta por implementar la logica de las pistas
+        $id_del_ejercicio_no_resuelto = validar_resultados($resultados, $pista=true);
+        $mensaje_pista = obtener_pista($id_del_ejercicio_no_resuelto);
     }
 }
 
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -122,11 +170,12 @@ if($_POST){
     <title>Document</title>
 </head>
 <body>
-    <form class="float-form" action="level.php", method="post">
-        <input class="btn-pista" type="submit" value="Canjear Pista" name="form-control">
-    </form>
 
-    <aside class="error-log">
+    <div class="pista-log">
+        <p><?php echo $mensaje_pista; ?></p>
+    </div>
+
+    <div class="error-log">
         <!-- En caso de que haya(n) error(es), se mostrara(n) aqui -->
         <?php if(sizeof($error) != 0){ ?>
             <?php foreach ($error as $key => $value) { ?>
@@ -134,9 +183,10 @@ if($_POST){
                 <p> <?php echo $value; ?> </p>
             <?php } ?>
         <?php } ?>
-    </aside>
+    </div>
 
     <form class="main-form" action="level.php", method="post">
+        <input class="btn-pista" type="submit" value="Canjear Pista (-1 Puntuación)" name="form-control">
         <div class="card-ejercicio">
             <h2>Ejercicio 1</h2>
             <p><?php echo $level['EJERCICIO_1']["PROBLEMA"]; ?></p>
