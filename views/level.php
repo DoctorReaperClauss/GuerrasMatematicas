@@ -190,27 +190,27 @@ if($_POST){
         <div class="card-ejercicio">
             <h2>Ejercicio 1</h2>
             <p><?php echo $level['EJERCICIO_1']["PROBLEMA"]; ?></p>
-            <input class="result" type="text" name="resultado-1" placeholder="Coloque El Resultado" value="<?php echo $resultado_1; ?>" required>
+            <input class="result" type="text" name="resultado-1" placeholder="Coloque El Resultado" value="<?php echo $resultado_1; ?>">
         </div>
         <div class="card-ejercicio">
             <h2>Ejercicio 2</h2>
             <p><?php echo $level['EJERCICIO_2']["PROBLEMA"]; ?></p>
-            <input class="result" type="text" name="resultado-2" placeholder="Coloque El Resultado" value="<?php echo $resultado_2; ?>" required>
+            <input class="result" type="text" name="resultado-2" placeholder="Coloque El Resultado" value="<?php echo $resultado_2; ?>">
         </div>
         <div class="card-ejercicio">
             <h2>Ejercicio 3</h2>
             <p><?php echo $level['EJERCICIO_3']["PROBLEMA"]; ?></p>
-            <input class="result" type="text" name="resultado-3" placeholder="Coloque El Resultado" value="<?php echo $resultado_3; ?>" required>
+            <input class="result" type="text" name="resultado-3" placeholder="Coloque El Resultado" value="<?php echo $resultado_3; ?>">
         </div>
         <div class="card-ejercicio">
             <h2>Ejercicio 4</h2>
             <p><?php echo $level['EJERCICIO_4']["PROBLEMA"]; ?></p>
-            <input class="result" type="text" name="resultado-4" placeholder="Coloque El Resultado" value="<?php echo $resultado_4; ?>" required>
+            <input class="result" type="text" name="resultado-4" placeholder="Coloque El Resultado" value="<?php echo $resultado_4; ?>">
         </div>
         <div class="card-ejercicio">
             <h2>Ejercicio 5</h2>
             <p><?php echo $level['EJERCICIO_5']["PROBLEMA"]; ?></p>
-            <input class="result" type="text" name="resultado-5" placeholder="Coloque El Resultado" value="<?php echo $resultado_5; ?>" required>
+            <input class="result" type="text" name="resultado-5" placeholder="Coloque El Resultado" value="<?php echo $resultado_5; ?>">
         </div>
         <input class="btn-result" type="submit" name="form-control" value="Validar Resultados">
     </form>
