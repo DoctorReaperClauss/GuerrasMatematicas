@@ -167,52 +167,59 @@ if($_POST){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../public/styles/level.css">
+    <link rel="shortcut icon" href="../public/imgs/perfil.jpg" type="image/x-icon">
+    <title>Guerras Matemáticas</title>
 </head>
 <body>
 
-    <div class="pista-log">
-        <p><?php echo $mensaje_pista; ?></p>
-    </div>
-
-    <!-- En caso de que haya(n) error(es), se mostrara(n) aqui -->
-    <?php if(sizeof($error) != 0){ ?>
-        <div class="error-log">
-                <?php foreach ($error as $key => $value) { ?>
-                    <!-- va a generar una etiqueta p por cada error que haya -->
-                    <p> <?php echo $value; ?> </p>
-                <?php } ?>
-        </div>
-    <?php } ?>
-
     <form class="main-form" action="level.php", method="post">
-        <input class="btn-pista" type="submit" value="Canjear Pista (-1 Puntuación)" name="form-control">
-        <div class="card-ejercicio">
-            <h2>Ejercicio 1</h2>
-            <p><?php echo $level['EJERCICIO_1']["PROBLEMA"]; ?></p>
-            <input class="result" type="text" name="resultado-1" placeholder="Coloque El Resultado" value="<?php echo $resultado_1; ?>">
+        <div class="title">
+            <h1>Ejercicios Prácticos</h1>
+            <h2>Resuelve los ejercicios y obtén puntos</h2>
         </div>
-        <div class="card-ejercicio">
-            <h2>Ejercicio 2</h2>
-            <p><?php echo $level['EJERCICIO_2']["PROBLEMA"]; ?></p>
-            <input class="result" type="text" name="resultado-2" placeholder="Coloque El Resultado" value="<?php echo $resultado_2; ?>">
+
+        <p class="pista-log"><?php echo $mensaje_pista; ?></p>
+
+        <!-- En caso de que haya(n) error(es), se mostrara(n) aqui -->
+        <?php if(sizeof($error) != 0){ ?>
+            <?php foreach ($error as $key => $value) { ?>
+                <!-- va a generar una etiqueta p por cada error que haya -->
+                <p class="error-log"> <?php echo $value; ?> </p>
+            <?php } ?>
+        <?php } ?>
+
+        <div class="cards">
+            <div class="card-ejercicio">
+                <h2>Ejercicio 1</h2>
+                <p class="ejercicio-p"><?php echo $level['EJERCICIO_1']["PROBLEMA"]; ?></p>
+                <input class="result" type="text" name="resultado-1" placeholder="Coloque El Resultado" value="<?php echo $resultado_1; ?>">
+            </div>
+            <div class="card-ejercicio">
+                <h2>Ejercicio 2</h2>
+                <p  class="ejercicio-p"><?php echo $level['EJERCICIO_2']["PROBLEMA"]; ?></p>
+                <input class="result" type="text" name="resultado-2" placeholder="Coloque El Resultado" value="<?php echo $resultado_2; ?>">
+            </div>
+            <div class="card-ejercicio">
+                <h2>Ejercicio 3</h2>
+                <p  class="ejercicio-p"><?php echo $level['EJERCICIO_3']["PROBLEMA"]; ?></p>
+                <input class="result" type="text" name="resultado-3" placeholder="Coloque El Resultado" value="<?php echo $resultado_3; ?>">
+            </div>
+            <div class="card-ejercicio">
+                <h2>Ejercicio 4</h2>
+                <p  class="ejercicio-p"><?php echo $level['EJERCICIO_4']["PROBLEMA"]; ?></p>
+                <input class="result" type="text" name="resultado-4" placeholder="Coloque El Resultado" value="<?php echo $resultado_4; ?>">
+            </div>
+            <div class="card-ejercicio">
+                <h2>Ejercicio 5</h2>
+                <p  class="ejercicio-p"><?php echo $level['EJERCICIO_5']["PROBLEMA"]; ?></p>
+                <input class="result" type="text" name="resultado-5" placeholder="Coloque El Resultado" value="<?php echo $resultado_5; ?>">
+            </div>
         </div>
-        <div class="card-ejercicio">
-            <h2>Ejercicio 3</h2>
-            <p><?php echo $level['EJERCICIO_3']["PROBLEMA"]; ?></p>
-            <input class="result" type="text" name="resultado-3" placeholder="Coloque El Resultado" value="<?php echo $resultado_3; ?>">
+        <div class="buttons">
+            <input class="btn" type="submit" value="Canjear Pista (-1 Puntuación)" name="form-control">
+            <input class="btn" type="submit" name="form-control" value="Validar Resultados">
         </div>
-        <div class="card-ejercicio">
-            <h2>Ejercicio 4</h2>
-            <p><?php echo $level['EJERCICIO_4']["PROBLEMA"]; ?></p>
-            <input class="result" type="text" name="resultado-4" placeholder="Coloque El Resultado" value="<?php echo $resultado_4; ?>">
-        </div>
-        <div class="card-ejercicio">
-            <h2>Ejercicio 5</h2>
-            <p><?php echo $level['EJERCICIO_5']["PROBLEMA"]; ?></p>
-            <input class="result" type="text" name="resultado-5" placeholder="Coloque El Resultado" value="<?php echo $resultado_5; ?>">
-        </div>
-        <input class="btn-result" type="submit" name="form-control" value="Validar Resultados">
     </form>
 
 </body>
