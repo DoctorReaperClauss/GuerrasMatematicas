@@ -175,15 +175,15 @@ if($_POST){
         <p><?php echo $mensaje_pista; ?></p>
     </div>
 
-    <div class="error-log">
-        <!-- En caso de que haya(n) error(es), se mostrara(n) aqui -->
-        <?php if(sizeof($error) != 0){ ?>
-            <?php foreach ($error as $key => $value) { ?>
-                <!-- va a generar una etiqueta p por cada error que haya -->
-                <p> <?php echo $value; ?> </p>
-            <?php } ?>
-        <?php } ?>
-    </div>
+    <!-- En caso de que haya(n) error(es), se mostrara(n) aqui -->
+    <?php if(sizeof($error) != 0){ ?>
+        <div class="error-log">
+                <?php foreach ($error as $key => $value) { ?>
+                    <!-- va a generar una etiqueta p por cada error que haya -->
+                    <p> <?php echo $value; ?> </p>
+                <?php } ?>
+        </div>
+    <?php } ?>
 
     <form class="main-form" action="level.php", method="post">
         <input class="btn-pista" type="submit" value="Canjear Pista (-1 Puntuación)" name="form-control">
